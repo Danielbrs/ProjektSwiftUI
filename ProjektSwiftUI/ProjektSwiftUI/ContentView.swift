@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContenView: View {
+struct ContentView: View {
     
    @State var showComposeMessageView: Bool = false
     
@@ -20,14 +20,15 @@ struct ContenView: View {
         List(0..<4){
             _ in
             
-            NavigationLink(destination: Text("Nachrichtentext")){
+            NavigationLink(destination: Text("Hier könnte deine Nachricht stehen")){
                 SingleMessageView()
             }
         }
-        .listSytle(GroupedListStyle())
+        .listStyle(GroupedListStyle())
         .navigationTitle("Inbox")
         .navigationBarItems(trailing: Button(action: {showComposeMessageView.toggle()
         },
+        
         label:{
             Image(systemName: "square.and.pencil")
         })
@@ -84,9 +85,5 @@ struct SingleMessageView: View{
     }
 }
 
-struct ContentView_PreviewsProvider{
-    static var previews: some View{
-        ContentView()
-    }
-}
+
 
