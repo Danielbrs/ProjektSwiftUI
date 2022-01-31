@@ -7,7 +7,36 @@
 
 import SwiftUI
 
-
+struct ContenView: View {
+    var body: some View{
+        
+        TabView{
+            
+        NavigationView {
+        
+        List(0..<4){
+            _ in
+            
+            NavigationLink(destination: Text("Nachrichtentext")){
+                SingleMessageView()
+            }
+        }
+        .listSytle(GroupedListStyle())
+        .navigationTitle("Inbox")
+        }
+        .tabItem {
+            Image(systemName: "envelope,fill")
+            Text("Inbox")
+        }
+            //zweiter  Tab
+            Text("Sent")
+                .tabItem {
+                    Image(systemName: "paperplane.fill")
+                    Text("Sent")
+                }
+    }
+}
+}
     
 struct SingleMessageView: View{
     var body: some View {
