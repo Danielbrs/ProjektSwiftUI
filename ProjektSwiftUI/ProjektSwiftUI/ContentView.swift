@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContenView: View {
+    
+   @State var showComposeMessageView: Bool = false
+    
     var body: some View{
         
         TabView{
@@ -23,7 +26,21 @@ struct ContenView: View {
         }
         .listSytle(GroupedListStyle())
         .navigationTitle("Inbox")
+        .navigationBarItems(trailing: Button(action: {showComposeMessageView.toggle()
+        },
+        label:{
+            Image(systemName: "square.and.pencil")
+        })
+        )
         }
+        
+        .sheet(isPresented: $showComposeMessageView, content: {
+            ZStack{
+                Color.blue
+                Text("Neuer Benutzer")
+            }
+        })
+        
         .tabItem {
             Image(systemName: "envelope,fill")
             Text("Inbox")
